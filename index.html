@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Quiz App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      padding: 20px;
+      color: #333;
+    }
+    #quiz-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .option button {
+      width: 100%;
+      background-color: #f1f1f1;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+    .option button:hover {
+      background-color: #e2e6ea;
+    }
+    .option button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .feedback {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    #score {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #333;
+    }
+    #next-btn {
+      background-color: #667eea;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #next-btn:hover {
+      background-color: #5a67d8;
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz-container">
+    <div id="question" class="question"></div>
+    <div id="options"></div>
+    <div id="feedback" class="feedback"></div>
+    <div id="score"></div>
+    <button id="next-btn" style="display: none;">Next</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Paris", "Rome", "Madrid"],
+        answer: "Paris"
+      },
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Mars"
+      },
+      {
+        question: "Who wrote 'To Kill a Mockingbird'?",
+        options: ["Harper Lee", "Jane Austen", "Mark Twain", "Ernest Hemingway"],
+        answer: "Harper Lee"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const feedbackEl = document.getElementById('feedback');
+    const scoreEl = document.getElementById('score');
+    const nextBtn = document.getElementById('next-btn');
+
+    function loadQuestion() {
+      feedbackEl.textContent = '';
+      nextBtn.style.display = 'none';
+      const current = questions[currentQuestionIndex];
+      questionEl.textContent = current.question;
+      optionsEl.innerHTML = '';
+      current.options.forEach(option => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'option';
+        const btn = document.createElement('button');
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(option);
+        wrapper.appendChild(btn);
+        optionsEl.appendChild(wrapper);
+      });
+    }
+
+    function checkAnswer(selected) {
+      const correct = questions[currentQuestionIndex].answer;
+      if (selected === correct) {
+        feedbackEl.textContent = '✅ Correct!';
+        feedbackEl.style.color = 'green';
+        score++;
+      } else {
+        feedbackEl.textContent = `❌ Wrong! Correct answer: ${correct}`;
+        feedbackEl.style.color = 'red';
+      }
+      Array.from(document.querySelectorAll('.option button')).forEach(btn => btn.disabled = true);
+      nextBtn.style.display = 'inline-block';
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+      } else {
+        questionEl.textContent = '🎉 Quiz Completed!';
+        optionsEl.innerHTML = '';
+        feedbackEl.textContent = '';
+        scoreEl.textContent = `Your score: ${score}/${questions.length}`;
+        nextBtn.style.display = 'none';
+      }
+    };
+
+    // Load the first question
+    loadQuestion();
+  </script>
+</body>
+</html>
