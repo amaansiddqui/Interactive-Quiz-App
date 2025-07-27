@@ -63,7 +63,15 @@ index.html        # Main HTML file containing structure, style, and logic
 
 ## 📸 Screenshot
 
-> *(Optional – You can include a screenshot of the app here for visual reference)*
+> <img width="960" height="429" alt="Image" src="https://github.com/user-attachments/assets/c8b303f7-68bf-43ba-a075-644ce5052b86" />
+
+<img width="960" height="405" alt="Image" src="https://github.com/user-attachments/assets/1a97892b-dde6-41f4-8cb2-bc2db72f2f95" />
+
+<img width="960" height="433" alt="Image" src="https://github.com/user-attachments/assets/e431d549-6578-4134-ac3d-746c76e22e36" />
+
+<img width="960" height="422" alt="Image" src="https://github.com/user-attachments/assets/070fff60-9eb4-4210-8cb0-ed8bd77fc6fe" />
+
+<img width="960" height="428" alt="Image" src="https://github.com/user-attachments/assets/d7af5111-7f22-4a22-9fc1-390041f4737d" />
 
 ---
 
