@@ -1,4 +1,17 @@
-# 📚 Interactive Quiz App
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19da024b-c7d4-4780-9e56-21ad13ebf4ce" /># Interactive Quiz App
+
+*COMPANY: CODTECH IT SOLUTIONS
+
+"NAME: Mohammad Amaan siddiqui
+
+"INTERN ID": CT12DH603
+
+"DOMAIN: FRONT END WEB DEVELOPMENT
+
+"DURATION: 3 months
+
+"MENTOR': NEELA SANTOSH
+
 
 A simple and elegant quiz application built using **HTML**, **CSS**, and **JavaScript**. This app presents multiple-choice questions, provides immediate feedback, and tracks the user's score throughout the session.
 
