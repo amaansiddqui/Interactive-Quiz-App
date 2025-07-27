@@ -1,4 +1,3 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19da024b-c7d4-4780-9e56-21ad13ebf4ce" /># Interactive Quiz App
 
 *COMPANY: CODTECH IT SOLUTIONS
 
